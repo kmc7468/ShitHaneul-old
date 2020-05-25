@@ -26,6 +26,7 @@ namespace sh {
 
 	public:
 		void Allocate(std::size_t size);
+		void Reallocate(std::size_t size);
 		std::size_t GetSize() const noexcept;
 		std::size_t GetUsedSize() const noexcept;
 		std::size_t GetFreeSize() const noexcept;

@@ -1,9 +1,10 @@
 #pragma once
 
 #include <cstdint>
+#include <variant>
 
 namespace sh {
-	enum class Type {
+	enum class Type : std::uint8_t {
 		None,
 		Integer,
 		Real,
@@ -97,4 +98,6 @@ namespace sh {
 		bool operator==(const CharacterConstant&) = delete;
 		bool operator!=(const CharacterConstant&) = delete;
 	};
+
+	using ConstantVariant = std::variant<std::monostate, IntegerConstant, RealConstant, BooleanConstant, CharacterConstant>;
 }

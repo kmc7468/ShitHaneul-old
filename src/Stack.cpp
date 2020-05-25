@@ -21,6 +21,12 @@ namespace sh {
 		m_Data.resize(size);
 		m_Used = 0;
 	}
+	void Stack::Reallocate(std::size_t size) {
+		assert(!m_Data.empty());
+		assert(size > GetSize());
+
+		m_Data.resize(size);
+	}
 	std::size_t Stack::GetSize() const noexcept {
 		return m_Data.size();
 	}

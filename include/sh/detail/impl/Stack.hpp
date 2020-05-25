@@ -27,7 +27,6 @@ namespace sh {
 	}
 	template<typename T>
 	T* Stack::Get(std::size_t offset) noexcept {
-		if (m_Used < sizeof(T) || m_Used < offset) return nullptr;
-		else return reinterpret_cast<T*>(&*(m_Data.rbegin() + offset - 1));
+		return const_cast<T*>(std::as_const(*this).Get<T>(offset));
 	}
 }
