@@ -1,6 +1,7 @@
 #include <sh/ByteFile.hpp>
 
 #include <cassert>
+#include <utility>
 
 namespace sh {
 	ByteFile::ByteFile(FunctionInfos&& functionInfos) noexcept

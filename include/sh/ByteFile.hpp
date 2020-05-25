@@ -2,8 +2,6 @@
 
 #include <sh/Function.hpp>
 
-#include <vector>
-
 namespace sh {
 	class ByteFile final {
 	private:
