@@ -29,6 +29,8 @@ namespace sh {
 		bool operator!=(const FunctionInfo&) = delete;
 	};
 
+	using FunctionInfos = std::vector<FunctionInfo*>;
+
 	class Function final {
 	public:
 		const FunctionInfo* Info = nullptr;
@@ -46,4 +48,6 @@ namespace sh {
 		bool operator==(const Function&) = delete;
 		bool operator!=(const Function&) = delete;
 	};
+
+	using Functions = std::vector<Function*>;
 }
