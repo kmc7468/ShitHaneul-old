@@ -1,7 +1,5 @@
 #include <sh/Function.hpp>
 
-#include <utility>
-
 namespace sh {
 	FunctionInfo::FunctionInfo(std::vector<Constant*>&& globalTable, sh::ConstantTable&& constantTable,
 		sh::Instructions&& instructions, std::size_t localCount) noexcept
@@ -24,10 +22,12 @@ namespace sh {
 	Function::Function(const FunctionInfo* functionInfo) noexcept
 		: Info(functionInfo) {}
 	Function::Function(Function&& function) noexcept
-		: Info(function.Info), FreeTable(std::move(function.FreeTable)) {}
+		: Info(function.Info), JosaTable(std::move(function.JosaTable)),
+		FreeTable(std::move(function.FreeTable)) {}
 
 	Function& Function::operator=(Function&& function) noexcept {
 		Info = function.Info;
+		JosaTable = std::move(function.JosaTable);
 		FreeTable = std::move(function.FreeTable);
 		return  *this;
 	}

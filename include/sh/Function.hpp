@@ -5,6 +5,7 @@
 #include <sh/Instruction.hpp>
 
 #include <cstddef>
+#include <utility>
 #include <vector>
 
 namespace sh {
@@ -31,6 +32,7 @@ namespace sh {
 	class Function final {
 	public:
 		const FunctionInfo* Info = nullptr;
+		std::vector<std::pair<std::size_t, ConstantVariant>> JosaTable;
 		std::vector<ConstantVariant> FreeTable;
 
 	public:

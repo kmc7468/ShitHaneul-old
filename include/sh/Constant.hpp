@@ -99,5 +99,24 @@ namespace sh {
 		bool operator!=(const CharacterConstant&) = delete;
 	};
 
-	using ConstantVariant = std::variant<std::monostate, IntegerConstant, RealConstant, BooleanConstant, CharacterConstant>;
+	class Function;
+
+	class FunctionConstant final : public Constant {
+	public:
+		Function* Value = nullptr;
+
+	public:
+		FunctionConstant() noexcept = default;
+		FunctionConstant(Function* value) noexcept;
+		FunctionConstant(const FunctionConstant& constant) noexcept;
+		~FunctionConstant() = default;
+
+	public:
+		FunctionConstant& operator=(const FunctionConstant& constant) noexcept;
+		bool operator==(const FunctionConstant&) = delete;
+		bool operator!=(const FunctionConstant&) = delete;
+	};
+
+	using ConstantVariant = std::variant<std::monostate, IntegerConstant, RealConstant,
+		BooleanConstant, CharacterConstant, FunctionConstant>;
 }

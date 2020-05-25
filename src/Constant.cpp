@@ -71,3 +71,17 @@ namespace sh {
 		return *this;
 	}
 }
+
+namespace sh {
+	FunctionConstant::FunctionConstant(Function* value) noexcept
+		: Constant(Type::Function), Value(value) {}
+	FunctionConstant::FunctionConstant(const FunctionConstant& constant) noexcept
+		: Constant(Type::Function), Value(constant.Value) {}
+
+	FunctionConstant& FunctionConstant::operator=(const FunctionConstant& constant) noexcept {
+		Constant::operator=(constant);
+
+		Value = constant.Value;
+		return *this;
+	}
+}
