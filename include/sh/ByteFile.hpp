@@ -10,7 +10,6 @@ namespace sh {
 
 	public:
 		ByteFile() noexcept = default;
-		ByteFile(FunctionInfos&& functionInfos) noexcept;
 		ByteFile(ByteFile&& byteFile) noexcept;
 		~ByteFile();
 
@@ -20,7 +19,8 @@ namespace sh {
 		bool operator!=(const ByteFile&) = delete;
 
 	public:
-		FunctionInfo* AddFunctionInfo();
-		void ReserveFunctionInfos(std::size_t size);
+		void Clear() noexcept;
+
+		void AddFunctionInfo(FunctionInfo&& functionInfo);
 	};
 }

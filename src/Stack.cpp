@@ -3,9 +3,6 @@
 #include <cassert>
 
 namespace sh {
-	Stack::Stack(std::size_t size) {
-		Allocate(size);
-	}
 	Stack::Stack(Stack&& stack) noexcept
 		: m_Data(std::move(stack.m_Data)), m_Used(stack.m_Used) {}
 

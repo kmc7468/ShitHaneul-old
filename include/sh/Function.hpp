@@ -18,8 +18,6 @@ namespace sh {
 
 	public:
 		FunctionInfo() noexcept = default;
-		FunctionInfo(std::vector<Constant*>&& globalTable, sh::ConstantTable&& constantTable,
-			sh::Instructions&& instructions, std::size_t localCount) noexcept;
 		FunctionInfo(FunctionInfo&& functionInfo) noexcept;
 		~FunctionInfo() = default;
 

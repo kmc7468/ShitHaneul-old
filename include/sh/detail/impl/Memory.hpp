@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <cstdint>
+#include <iterator>
 
 namespace sh {
 #ifdef SH_LITTLE
@@ -17,7 +18,7 @@ namespace sh {
 			std::uint8_t Bytes[sizeof(value)];
 		} temp;
 		temp = reinterpret_cast<const Transformer&>(value);
-		std::reverse(temp.Bytes, temp.Bytes + sizeof(value));
+		std::reverse(std::begin(temp.Bytes), std::end(temp.Bytes));
 		return reinterpret_cast<T&>(temp);
 	}
 }

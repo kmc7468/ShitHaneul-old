@@ -1,6 +1,5 @@
 #include <sh/ConstantTable.hpp>
 
-#include <cassert>
 #include <utility>
 
 namespace sh {
@@ -15,15 +14,10 @@ namespace sh {
 		return m_Table[index];
 	}
 
-	void ConstantTable::Add(const ConstantVariant& constant) {
+	void ConstantTable::AddConstant(const ConstantVariant& constant) {
 		m_Table.push_back(constant);
 	}
-	void ConstantTable::Add(ConstantVariant&& constant) {
+	void ConstantTable::AddConstant(ConstantVariant&& constant) {
 		m_Table.push_back(std::move(constant));
-	}
-	void ConstantTable::Reserve(std::size_t size) {
-		assert(size > m_Table.capacity());
-
-		m_Table.reserve(size);
 	}
 }

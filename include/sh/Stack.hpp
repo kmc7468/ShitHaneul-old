@@ -15,7 +15,6 @@ namespace sh {
 
 	public:
 		Stack() noexcept = default;
-		explicit Stack(std::size_t size);
 		Stack(Stack&& stack) noexcept;
 		~Stack() = default;
 

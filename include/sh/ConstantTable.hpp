@@ -2,6 +2,7 @@
 
 #include <sh/Constant.hpp>
 
+#include <cstddef>
 #include <vector>
 
 namespace sh {
@@ -21,8 +22,7 @@ namespace sh {
 		const ConstantVariant& operator[](std::size_t index) const noexcept;
 
 	public:
-		void Add(const ConstantVariant& constant);
-		void Add(ConstantVariant&& constant);
-		void Reserve(std::size_t size);
+		void AddConstant(const ConstantVariant& constant);
+		void AddConstant(ConstantVariant&& constant);
 	};
 }

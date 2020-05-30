@@ -30,18 +30,18 @@ namespace sh {
 		Negate,
 	};
 
+	using IntegerOperand = std::uint32_t;
+	using JosaListOperand = std::vector<std::size_t>;
+	using FreeListOperand = std::vector<std::pair<bool, std::size_t>>;
+	using Operand = std::variant<std::monostate, IntegerOperand, JosaListOperand, FreeListOperand>;
+
 	class Instruction final {
 	public:
 		sh::OpCode OpCode;
-		std::variant<std::monostate, std::uint32_t, std::vector<std::size_t>,
-			std::vector<std::pair<bool, std::size_t>>> Operand;
+		sh::Operand Operand;
 
 	public:
 		Instruction() noexcept = default;
-		explicit Instruction(sh::OpCode opCode) noexcept;
-		Instruction(sh::OpCode opCode, std::uint32_t operand) noexcept;
-		Instruction(sh::OpCode opCode, std::vector<std::size_t>&& operand) noexcept;
-		Instruction(sh::OpCode opCode, std::vector<std::pair<bool, std::size_t>>&& operand) noexcept;
 		Instruction(Instruction&& instruction) noexcept;
 		~Instruction() = default;
 

@@ -24,6 +24,9 @@ namespace sh {
 		const std::streamsize length = stream.tellg();
 		stream.seekg(0, std::ifstream::beg);
 
+		m_Data.clear();
+		m_Cursor = 0;
+
 		if (length) {
 			std::vector<std::uint8_t> bytes(static_cast<std::size_t>(length));
 			stream.read(reinterpret_cast<char*>(bytes.data()), length);
@@ -31,8 +34,6 @@ namespace sh {
 
 			m_Data = std::move(bytes);
 		}
-
-		m_Cursor = 0;
 	}
 	ByteFile Parser::Parse() {
 		assert(!m_Data.empty());

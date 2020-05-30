@@ -69,7 +69,7 @@ namespace sh {
 
 	class BooleanConstant final : public Constant {
 	public:
-		bool Value = 0;
+		bool Value = false;
 
 	public:
 		BooleanConstant() noexcept = default;

@@ -1,10 +1,6 @@
 #include <sh/Function.hpp>
 
 namespace sh {
-	FunctionInfo::FunctionInfo(std::vector<Constant*>&& globalTable, sh::ConstantTable&& constantTable,
-		sh::Instructions&& instructions, std::size_t localCount) noexcept
-		: GlobalTable(std::move(globalTable)), ConstantTable(std::move(constantTable)),
-		Instructions(std::move(instructions)), LocalCount(localCount) {}
 	FunctionInfo::FunctionInfo(FunctionInfo&& functionInfo) noexcept
 		: GlobalTable(std::move(functionInfo.GlobalTable)), ConstantTable(std::move(functionInfo.ConstantTable)),
 		Instructions(std::move(functionInfo.Instructions)), LocalCount(functionInfo.LocalCount) {}
